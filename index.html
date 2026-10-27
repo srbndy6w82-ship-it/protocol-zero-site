@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>ARHIVĂ</title>
+    <style>
+        body { background-color: #0a0a0a; color: #e0e0e0; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .box { border: 1px solid #333; padding: 40px; text-align: center; max-width: 400px; }
+        input { background: transparent; border: 1px solid #555; color: white; padding: 10px; margin: 10px 0; font-family: 'Courier New', monospace; text-align: center; outline: none; }
+        button { background: transparent; border: 1px solid #555; color: white; padding: 10px; cursor: pointer; font-family: 'Courier New', monospace; }
+        button:hover { background: #333; }
+        #result { margin-top: 15px; color: #888; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>ARHIVĂ</h2>
+        <p>ai scanat codul.<br>ai ajuns aici.<br>înseamnă că ești ca mine.</p>
+        <p>dar nu ești destul de curios.</p>
+        <p>parola e în episod.<br>uită-te mai atent.</p>
+        <input type="text" id="password" placeholder="introdu parola">
+        <br>
+        <button onclick="checkPassword()">[ verifică ]</button>
+        <div id="result"></div>
+        <p style="margin-top: 30px; font-size: 0.8em; color: #555;">— A.</p>
+    </div>
+
+    <!-- 
+      parola: numele de pe sticker.
+      cel de pe colțul laptopului.
+      e scrijelit pe birou. dar nu acolo e scris.
+      e pe laptop. uită-te la colțul rupt.
+    -->
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('password').value.toLowerCase().trim();
+            const result = document.getElementById('result');
+            
+            if (input === 'vm' || input === 'zero') {
+                result.innerHTML = 'verificare...';
+                result.style.color = '#fff';
+                setTimeout(() => {
+                    result.innerHTML = 'accesat.';
+                    setTimeout(() => {
+                        window.location.href = 'arhiva.html';
+                    }, 1000);
+                }, 2000);
+            } else {
+                result.innerHTML = 'parolă greșită.';
+                result.style.color = '#ff4444';
+                setTimeout(() => {
+                    result.innerHTML = 'încearcă din nou.';
+                    result.style.color = '#888';
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
